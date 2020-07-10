@@ -3,8 +3,24 @@ def intersection(arrays):
     YOUR CODE HERE
     """
     # Your code here
+    for index,arr in enumerate(arrays):
+        locals()["dict{}".format(index)] ={}
+        for value in arr:
+            locals()["dict{}".format(index)][value] = True
 
-    return result
+    # for index in range(len(arrays)):
+    #     print(locals()["dict{}".format(index)])
+    results =[]
+    for key in locals()["dict{}".format(0)]:
+        if len(arrays) < 3:
+            if locals()["dict{}".format(1)].get(key):
+                results.append(key)
+        else:
+            if locals()["dict{}".format(1)].get(key) and locals()["dict{}".format(2)].get(key):
+                results.append(key)
+
+
+    return results
 
 
 if __name__ == "__main__":
